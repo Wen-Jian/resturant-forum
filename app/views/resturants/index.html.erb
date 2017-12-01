@@ -1,0 +1,83 @@
+
+<div class="contain">
+	
+	<div class="search-bar">
+		<%= form_for :search, :url => resturants_path, method: :get do |f| %>
+			<%= f.text_field :query, placeholder: "找餐廳或地址" %>
+			<button class="searchbtn btn"><img src="search-icon.png"></button>
+
+		<% end %>
+	</div>
+	<div class="discount-info">
+		
+
+
+
+
+	</div>
+	<div class="menu">
+		<div class="left col-xs-12 col-sm-7 col-md-7 col-lg-7">
+			<div class="tag" id="tag-new">
+				<img  src="star_icon.jpg">
+				<%= link_to "最新文章", resturants_path(:filter => "news") %>
+				<div class="show-box" id="newarticles">
+		
+					
+					<button class="scroll-left" id="scroll-left"><</button>
+					<button class="scroll-right" id="scroll-right">></button>
+					<div class="canvas">
+						
+						<% for i in 0..5 do %>
+							<div class="newest">
+							
+								<img src="star_icon.jpg">
+								<p>article title</p>
+
+							</div>
+						
+						<% end %>
+
+					</div>
+					
+
+				</div>
+			</div>
+			<div class="tag">
+				<img src="star_icon.jpg">
+				<%= link_to "熱門文章", resturants_path(:filter => "hot") %>
+				<div class="show-box ">
+		
+
+
+				</div>
+			</div>
+			
+
+		</div>
+
+		<div class="right col-xs-12 col-sm-5 col-md-5 col-lg-">
+			
+			<div class="tag">
+				<img src="star_icon.jpg">
+				<%= link_to "評價排行", resturants_path(:filter => "eva") %>
+				<div  class="show-box evaluate-show-box" >
+		
+
+
+				</div>
+
+		</div>
+		
+
+		
+	</div>
+
+	
+
+
+	
+		
+		
+		
+	
+</div>

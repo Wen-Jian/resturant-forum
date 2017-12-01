@@ -6,9 +6,36 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  	<script type="text/javascript">
+  		
+  		
+
+  		function init () {
+
+
+  			var scrollright = document.getElementById("scroll-right");
+        var scrollleft = document.getElementById("scroll-left");
+  			var newarticle = document.getElementById("newarticle");
+        
+  			scrollright.addEventListener("click", rightscrolling);
+        scrollleft.addEventListener("click", leftscrolling)
+
+  			function rightscrolling () {
+          
+  				newarticles.scrollTo(newarticles.scrollLeft+300,0);
+  			};
+        function leftscrolling() {
+          newarticles.scrollTo(newarticles.scrollLeft-300, 0);
+        }
+
+  		};
+
+  		
+
+  	</script>
   </head>
 
-  <body>
+  <body onload="init()">
     <%= yield %>
   </body>
 </html>

@@ -34,6 +34,11 @@ ActiveRecord::Schema.define(version: 20171128091313) do
     t.index ["user_id"], name: "index_commments_on_user_id"
   end
 
+  create_table "discussions", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "evaluations", force: :cascade do |t|
     t.integer "level"
     t.integer "user_id"
