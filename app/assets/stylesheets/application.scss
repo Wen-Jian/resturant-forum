@@ -3,14 +3,24 @@
 
 *{
 	box-sizing: border-box;
-	
-	
+}
+.banner{
+	position:fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height:100px;
+	background-color:#FFCC22;
 }
 body{
 	background-color:	#F8F8FF;
+	font-family:微軟正黑體;
+}
+a:hover{
+	text-decoration: none;
 }
 .contain {
-	margin-top:100px;
+	margin-top:120px;
 	
 	padding: 0  5%;
 	
@@ -30,7 +40,7 @@ body{
 	text-align: left;	
 }
 
-.tag a {
+.link a {
 	color:black;
 	background-color:silver;
 	padding:16px 0;
@@ -40,7 +50,7 @@ body{
 	
 }
 
-.tag a:hover {
+.link a:hover {
 	
 	text-decoration: none;
 	color:#00FFFF;
@@ -48,8 +58,7 @@ body{
 
 #tag-new{
 	position: relative;
-	border: 1px solid red;
-	height: 100%;
+	
 }
 .tag img{
 	height:49px;
@@ -58,7 +67,7 @@ body{
 .search-bar{
 	margin: 20px 0px;
 	height: 100px;
-	background-color: black;
+	text-align:center;
 }
 .search-bar form{
 	height: 30px;
@@ -66,26 +75,25 @@ body{
 }
 .show-box {
 	width:100%;
-	height:100px;
+	height:200px;
 	background-color: black;
-	margin-bottom: 20px;
 	overflow:hidden;
 }
 
 .scroll-right{
 	position: absolute;
-	top: 55px;
+	top: 49px;
 	right: 0px;
-	height:65%;
-	width:10%;
+	height:80%;
+	width:30px;
 	opacity: 0.1;
 }
 .scroll-left{
 	position: absolute;
-	top: 55px;
+	top: 49px;
 	left: 0px;
-	height:65%;
-	width:10%;
+	height:80%;
+	width:30px;
 	opacity: 0.1;
 }
 .scroll-left:hover, .scroll-right:hover{
@@ -100,16 +108,17 @@ body{
 	border-radius: 20px;
 }
 .evaluate-show-box {
-	height: 370px;
+	height: 450px;
 	width:100%;
 	background-color: black;
 	margin-bottom: 20px;
+	overflow-y:scroll;
 }
 .discount-info{
 	
 	width:100%;
 	height: 200px;
-	background-color: black;
+	background-color: gray;
 
 }
 #newarticles{
@@ -118,16 +127,125 @@ body{
 }
 .newest{
 	display: inline-block;
-	width:16%;
-	margin-right: 5px; 
-	border: 1px solid black;
-	
-}
-.canvas{
-	width:250%;
+	margin:0px 5px; 
+	box-shadow: 5px 10px 5px #888888;
 }
 .newest img{
+	
+	height:150px;
+
+}
+.newest a{
+	
+	padding:0px 0px;
+	text-decoration: none;
+}
+
+.newest a:hover{
+	color:black;
+
+}
+
+.article-canvas{
+	height:200px;
+	width:1100px;
+}
+
+.user_state{
+	text-align:right;
+}
+
+.eva-rest{
 	display:block;
+	height:80px;
+	text-align:center;
+	background-color:white;
+	border:1px solid white;
+}
+.eva-rest img{
+	margin: 2px 0px;
+	height:75px;
+}
+#hotarticles{
+	background-color:white;
+}
+#tag-hot{
+	position: relative;
+	margin-bottom:50px;
+	
+}
+.scroll-right-hot{
+	position: absolute;
+	top: 49px;
+	right: 0px;
+	height:80%;
+	width:30px;
+	opacity: 0.1;
+}
+.scroll-left-hot{
+	position: absolute;
+	top: 49px;
+	left: 0px;
+	height:80%;
+	width:30px;
+	opacity: 0.1;
+}
+.scroll-left-hot:hover, .scroll-right-hot:hover{
+	opacity:0.8;
+}
+.text-field{
+	width:90%;
+}
+.information{
 	width:100%;
-	height:100%;
+	height: 300px;
+	box-shadow: 5px 10px 5px #888888;
+	background-color: white;
+}
+.cover{
+	
+	display: inline-block;
+	width:300px;
+
+}
+.cover img{
+	background-color: white;
+	width:300px;	
+}
+.store-info{
+	display: inline-block;
+	width:50%;
+	margin-top:0px;
+}
+.store-info table{
+	width:100%;
+	margin-left:5px; 
+	margin-top:0px;
+}
+.store-info td, .store-info th{
+	width:50%;
+	height:57px;
+	font-size:24px;
+}
+.google-map{
+	width:50%;
+	height:300px;
+	background-color: white;
+	display:inline-block;
+}
+.container{
+	margin-top:150px;
+}
+.store-article img,.article-brief {
+	display:inline-block;
+	vertical-align : top;
+	margin:5px 0px;
+}
+.article-brief{
+	border:1px solid red;
+	height:100%
+}
+.store-article{
+	box-shadow: 5px 10px 5px #888888;
+	width:100%;
 }
