@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171129125428) do
+ActiveRecord::Schema.define(version: 20171208091700) do
 
   create_table "blogs", force: :cascade do |t|
     t.string "title"
@@ -24,6 +24,12 @@ ActiveRecord::Schema.define(version: 20171129125428) do
     t.index ["user_id"], name: "index_blogs_on_user_id"
   end
 
+  create_table "chatrooms", force: :cascade do |t|
+    t.string "topic"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "commments", force: :cascade do |t|
     t.string "commenter"
     t.integer "user_id"
@@ -32,11 +38,6 @@ ActiveRecord::Schema.define(version: 20171129125428) do
     t.datetime "updated_at", null: false
     t.index ["blog_id"], name: "index_commments_on_blog_id"
     t.index ["user_id"], name: "index_commments_on_user_id"
-  end
-
-  create_table "discussions", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "evaluations", force: :cascade do |t|
@@ -56,6 +57,12 @@ ActiveRecord::Schema.define(version: 20171129125428) do
     t.datetime "updated_at", null: false
     t.index ["blog_id"], name: "index_likes_on_blog_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "resturants", force: :cascade do |t|

@@ -27,6 +27,8 @@ validates_presence_of :admin
          self.name.split.last_name
        end
 
-
+  has_many :messages
+  has_many :chatrooms, through: :messages
+  validates :username, presence: true, uniqueness: true
 
 end
