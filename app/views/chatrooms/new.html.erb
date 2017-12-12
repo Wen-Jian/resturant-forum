@@ -1,0 +1,14 @@
+<div class="contain">
+	
+	<% if @room.error %>
+
+		<h3><%= @room.error %></h3>
+	<%= form_for @room, :url => chatrooms_path, method: :post  do |f| %>
+
+		<%= f.label :topic %>
+		<%= f.text_field :topic %>
+		<%= f.submit "commit" %>
+
+	<% end %>
+
+</div>

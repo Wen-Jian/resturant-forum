@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171208091700) do
+ActiveRecord::Schema.define(version: 20171209090514) do
 
   create_table "blogs", force: :cascade do |t|
     t.string "title"
@@ -63,6 +63,10 @@ ActiveRecord::Schema.define(version: 20171208091700) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "chatrooms_id"
+    t.integer "chatroom_id"
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["chatrooms_id"], name: "index_messages_on_chatrooms_id"
   end
 
   create_table "resturants", force: :cascade do |t|

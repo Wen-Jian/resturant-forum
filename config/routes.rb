@@ -6,19 +6,22 @@ Rails.application.routes.draw do
   
   resources :resturants do
 
-  	resources :blogs
+  	resources :blogs do
+
+      resources :comments
+
+    end
 
   end
+
+  resources :users, only: [:show]
 
   root "resturants#index"
 
-  namespace :admin do
-    resources :resturants
-  end
 
   mount ActionCable.server => '/cable'
 
-  resources :chatrooms, param: :slug
+  resources :chatrooms
   resources :messages
 
 

@@ -1,0 +1,53 @@
+<div class="container">
+	
+	<p class="article-title">ARTICLE TITLE</p>
+
+
+	<div class="article-body">
+
+		
+		
+	</div>
+
+	<div class="comment">
+		
+
+
+	</div>
+
+	<div class="comment-form">
+		
+		<% if current_user %>
+
+			<%= form_for :comment, :url => resturant_blog_comments_path(:blog_id => 1) do |f| %>
+
+
+				<div class="form-group">
+					
+					<%= f.label :comment %>
+
+					<%= f.text_area :commenter, class: "form-control", row: "100" %>
+
+				</div>
+
+				<%= f.hidden_field :user_id, :value => current_user %>
+
+				<%= f.submit "comment", class: "btn btn-primary comment-btn" %>
+
+				
+
+			<% end %>
+
+		<% else %>
+
+			<button class="login-to-comment btn btn-primary">login to comment</button>
+
+		<% end %>
+
+	</div>
+
+	
+
+
+
+</div>

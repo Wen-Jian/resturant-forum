@@ -1,0 +1,29 @@
+
+<div class="contain">
+	
+	<% if @room == [] %>
+
+		<p>there is no recored</p>
+		<%= link_to "add-new", new_chatroom_path %>
+
+	<% else %>
+	
+		<% @room.each do |r|%>
+
+			<div class="roomlist">
+			
+				<a href= <%= chatroom_path(r.id) %>>
+					
+					<h3><%= r.topic %></h3>
+
+				</a>
+
+			</div>
+
+		<% end %> 
+	
+
+	<% end %>
+		
+
+</div>
