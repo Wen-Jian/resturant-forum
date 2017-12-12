@@ -9,9 +9,22 @@
 		
 	</div>
 
-	<div class="comment">
+	<div class="comments">
 		
+		<% if @comments %>
 
+			<% (@comments.commments).each do |c| %>
+
+			<div >
+				
+				<h4><%=c.user_id %></h4>
+				<h4><%= simple_format(c.commenter) %></h4>
+
+			</div>
+
+			<% end %>
+
+		<% end %>
 
 	</div>
 
@@ -19,7 +32,7 @@
 		
 		<% if current_user %>
 
-			<%= form_for :comment, :url => resturant_blog_comments_path(:blog_id => 1) do |f| %>
+			<%= form_for :comment, :url => comments_path do |f| %>
 
 
 				<div class="form-group">
@@ -30,7 +43,9 @@
 
 				</div>
 
-				<%= f.hidden_field :user_id, :value => current_user %>
+				<%= f.hidden_field :user_id, :value => current_user.id %>
+				<%= f.hidden_field :blog_id, :value => @blog.id %>
+				<%= f.hidden_field :rest_id, :value => @blog.restaurant_id %>
 
 				<%= f.submit "comment", class: "btn btn-primary comment-btn" %>
 
@@ -40,7 +55,12 @@
 
 		<% else %>
 
-			<button class="login-to-comment btn btn-primary">login to comment</button>
+			<a href= <%= new_user_session_path %>>
+				
+				<button class="login-to-comment btn btn-primary">login to comment</button>
+
+			</a>
+			
 
 		<% end %>
 

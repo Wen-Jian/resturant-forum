@@ -6,13 +6,11 @@ Rails.application.routes.draw do
   
   resources :restaurants do
 
-  	resources :blogs do
-
-      resources :comments
-
-    end
+  	resources :blogs 
 
   end
+
+  resources :comments
 
   resources :users, only: [:show]
 

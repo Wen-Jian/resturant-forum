@@ -59,7 +59,7 @@
 													
 						<% @newblogs.each do |blog| %>
 						<div class="newest">
-							<a href= <%= restaurant_blog_path(blog, blog) %>>
+							<a href= <%= restaurant_blog_path(blog.restaurant_id, blog.id) %>>
 														
 								<img src= <%= blog.photos %>>
 								<p><%=blog.title %></p>

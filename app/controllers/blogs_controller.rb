@@ -6,11 +6,14 @@ class BlogsController < ApplicationController
 
 	def show
 
-		# @blog = Blog.find(params[:id])
+		@blog = Blog.find(params[:id])
 		unless current_user
-			session[:resturant_id] = params[:resturant_id]
+			session[:restaurant_id] = params[:restaurant_id]
 			session[:blog_id] = params[:id]
 		end
+
+		@comments = Blog.includes(:commments).find(params[:id])
+		
 		
 	end
 

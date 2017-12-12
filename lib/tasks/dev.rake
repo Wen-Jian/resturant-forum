@@ -31,7 +31,7 @@ namespace :seeddata do
 
 				title: FFaker::Lorem.sentence,
 				description: FFaker::Lorem.sentence,
-				user_id: 8,
+				user_id: rand(1...10),
 				restaurant_id: (rand(400).to_i),
 				photos: "../star_icon.jpg",
 				hot_count: 0

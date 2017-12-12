@@ -5,16 +5,16 @@ class RestaurantsController < ApplicationController
 		
 		if current_user
 
-			if session[:resturant_id]
+			if session[:restaurant_id]
 
-				@rest_id = session[:resturant_id]
+				@rest_id = session[:restaurant_id]
 				@blog_id = session[:blog_id]
-				session[:resturant_id] = nil
+				session[:restaurant_id] = nil
 				session[:blog_id] = nil
-				redirect_to resturant_blog_path(@rest_id, @blog_ids)
+				redirect_to restaurant_blog_path(@rest_id, @blog_id)
 
 			end
-
+			
 		end
 
 		@newblogs = (Blog.all).order('created_at DESC').limit(6)
