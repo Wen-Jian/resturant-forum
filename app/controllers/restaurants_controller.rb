@@ -1,4 +1,5 @@
-class ResturantsController < ApplicationController
+class RestaurantsController < ApplicationController
+
 	before_action :authenticate_admin, only: [:new, :edit, :update, :delete, :create]
 	def index
 		
@@ -10,12 +11,15 @@ class ResturantsController < ApplicationController
 				@blog_id = session[:blog_id]
 				session[:resturant_id] = nil
 				session[:blog_id] = nil
-				redirect_to resturant_blog_path(@rest_id, @blog_id)
+				redirect_to resturant_blog_path(@rest_id, @blog_ids)
 
 			end
 
 		end
+
+		@newblogs = (Blog.all).order('created_at DESC').limit(6)
 		
+		@hotblogs = (Blog.all).order('hot_count ASC').limit(6)
 
 
 
@@ -45,6 +49,5 @@ class ResturantsController < ApplicationController
 		
 	end
 
-	
 
 end

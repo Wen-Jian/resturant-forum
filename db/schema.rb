@@ -10,24 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171209090514) do
+ActiveRecord::Schema.define(version: 20171212095624) do
 
   create_table "blogs", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.string "photos"
     t.integer "user_id"
-    t.integer "resturant_id"
+    t.integer "restaurant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["resturant_id"], name: "index_blogs_on_resturant_id"
+    t.integer "hot_count"
+    t.index ["restaurant_id"], name: "index_blogs_on_restaurant_id"
     t.index ["user_id"], name: "index_blogs_on_user_id"
-  end
-
-  create_table "chatrooms", force: :cascade do |t|
-    t.string "topic"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "commments", force: :cascade do |t|
@@ -43,10 +38,10 @@ ActiveRecord::Schema.define(version: 20171209090514) do
   create_table "evaluations", force: :cascade do |t|
     t.integer "level"
     t.integer "user_id"
-    t.integer "resturant"
+    t.integer "restaurant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["resturant"], name: "index_evaluations_on_resturant"
+    t.index ["restaurant_id"], name: "index_evaluations_on_restaurant_id"
     t.index ["user_id"], name: "index_evaluations_on_user_id"
   end
 
@@ -59,30 +54,21 @@ ActiveRecord::Schema.define(version: 20171209090514) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
-  create_table "messages", force: :cascade do |t|
-    t.text "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "chatrooms_id"
-    t.integer "chatroom_id"
-    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
-    t.index ["chatrooms_id"], name: "index_messages_on_chatrooms_id"
-  end
-
-  create_table "resturants", force: :cascade do |t|
+  create_table "restaurants", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.integer "seat"
     t.integer "minimum_order"
-    t.integer "phone"
+    t.string "phone"
     t.integer "dining_time"
-    t.integer "open_time"
+    t.string "open_time"
     t.integer "close_time"
+    t.text "address"
     t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.index ["user_id"], name: "index_resturants_on_user_id"
+    t.index ["user_id"], name: "index_restaurants_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -28,8 +28,8 @@
 
   			function rightscrolling () {
           
-
-  				newarticle.scrollTo(newarticle.scrollLeft+300,0);
+          newarticle.scrollTo(newarticle.scrollLeft+300,0);
+  				
   			};
         function leftscrolling() {
           newarticle.scrollTo(newarticle.scrollLeft-300, 0);
@@ -58,7 +58,7 @@
       
       <div class="logo">
         
-        <%= link_to resturants_path, method: :get do  %>
+        <%= link_to restaurants_path, method: :get do  %>
           <h1>Eating-time</h1>
 
         <% end %>

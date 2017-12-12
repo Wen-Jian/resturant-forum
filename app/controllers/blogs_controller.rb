@@ -14,4 +14,12 @@ class BlogsController < ApplicationController
 		
 	end
 
+	def new
+		
+	end
+
+	def create
+		
+	end
+
 end

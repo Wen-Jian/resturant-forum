@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
 
   
-  resources :resturants do
+  resources :restaurants do
 
   	resources :blogs do
 
@@ -16,13 +16,11 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
 
-  root "resturants#index"
+  root "restaurants#index"
 
 
-  mount ActionCable.server => '/cable'
 
-  resources :chatrooms
-  resources :messages
+
 
 
 end

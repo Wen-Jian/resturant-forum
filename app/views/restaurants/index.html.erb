@@ -1,7 +1,7 @@
 <div class="contain">
 	
 	<div class="search-bar">
-		<%= form_for :search, :url => resturants_path, method: :get do |f| %>
+		<%= form_for :search, :url => restaurants_path, method: :get do |f| %>
 			<%= f.text_field :query, placeholder: "找餐廳或地址", class: "text-field" %>
 			<button class="searchbtn btn"><img src="search-icon.png"></button>
 
@@ -43,10 +43,10 @@
 	<div class="menu">
 		<div class="left col-xs-12 col-sm-7 col-md-7 col-lg-7">
 			<div class="tag" id="tag-new">
-				<img  src="star_icon.jpg">
+				<img  src="../star_icon.jpg">
 				<div class="link">
 						
-					<%= link_to "最新文章", resturants_path(:filter => "news") %>
+					<%= link_to "最新文章", restaurants_path(:filter => "news") %>
 
 				</div>
 				
@@ -57,12 +57,12 @@
 					<button class="scroll-right" id="scroll-right">></button>
 					<div class="article-canvas">
 													
-						<% for i in 0..5 do %>
+						<% @newblogs.each do |blog| %>
 						<div class="newest">
-							<a href= <%= resturant_blog_path(i, i) %>>
+							<a href= <%= restaurant_blog_path(blog, blog) %>>
 														
-								<img src="star_icon.jpg">
-								<p>article title<%= i %></p>
+								<img src= <%= blog.photos %>>
+								<p><%=blog.title %></p>
 							
 							</a>
 						</div>	
@@ -79,7 +79,7 @@
 				<img  src="star_icon.jpg">
 				<div class="link">
 						
-					<%= link_to "熱門文章", resturants_path(:filter => "news") %>
+					<%= link_to "熱門文章", restaurants_path(:filter => "news") %>
 
 				</div>
 				
@@ -90,12 +90,12 @@
 					<button class="scroll-right-hot" id="scroll-right-hot">></button>
 					<div class="article-canvas">
 													
-						<% for i in 0..5 do %>
+						<% @hotblogs.each do |b| %>
 						<div class="newest">
-							<a href= <%= resturant_blog_path(i, i)%>>
+							<a href= <%= restaurant_blog_path(b.restaurant_id, b.id)%>>
 														
-								<img src="star_icon.jpg">
-								<p>article title<%= i %></p>
+								<img src= <%= b.photos%>>
+								<p><%= b.title %></p>
 							
 							</a>
 						</div>	
@@ -116,7 +116,7 @@
 				<img src="star_icon.jpg">
 				<div class="link">
 						
-					<%= link_to "評價排行", resturants_path(:filter => "eva") %>
+					<%= link_to "評價排行", restaurants_path(:filter => "eva") %>
 
 				</div>
 				
@@ -126,7 +126,7 @@
 					<% for i in 0..9 do %>
 
 						<div class="eva-rest">
-							<a href= <%=resturant_path(i) %>>
+							<a href= <%=restaurant_path(i) %>>
 							<img src="star_icon.jpg">
 							<h3>informations</h3>
 							</a>	

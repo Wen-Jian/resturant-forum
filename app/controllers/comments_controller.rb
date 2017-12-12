@@ -6,6 +6,9 @@ class CommentsController < ApplicationController
 
 		if comment.save
 
+			blog = Blog.find(@comment.blog_id)
+			blog[:hot_count] += 1
+			blog.save
 			redirect_to resturant_blog_path(params[:resturant_id], params[:blog_id])
 		else
 

@@ -5,7 +5,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :resturants, foreign_key: "user_id"
+  
   has_many :blogs, foreign_key: "user_id"
   has_many :comments, foreign_key: "user_id"
   has_many :likes, foreign_key: "user_id"
